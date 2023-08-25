@@ -37,7 +37,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <table class="table table-striped table-hover table-bordered">
+                <table class="table table-striped table-hover table-bordered table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
