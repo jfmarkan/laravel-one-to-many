@@ -50,18 +50,29 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                            <li class="align-self-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Create New
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a href="" class="dropdown-item">Type</a></li>
+                                        <li><a href="{{ route('admin.projects.create') }}" class="dropdown-item">Project</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="align-self-center">
+                                <a href="{{route('admin.projects.bin')}}" class="btn btn-warning btn-sm mx-2">
+                                    View Trash
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            </li>
+                            <li class="align-self-center">
+                                <div class="btn btn-danger btn-sm">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -69,13 +80,9 @@
                             </li>
                         @endguest
                     </ul>
-                    <a href="{{route('admin.projects.create')}}" class="btn btn-info btn-sm ms-4">
-                        Add Project
-                    </a>
-                    <a href="{{route('admin.projects.bin')}}" class="btn btn-warning btn-sm ms-2">
-                        View Trash
-                    </a>
                 </div>
+                    
+                
             </div>
         </nav>
 
