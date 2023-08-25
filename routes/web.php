@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\ProjectController as ProjectController;
+use App\Http\Controllers\Admin\TypeController as TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
     Route::get('/projects/bin', [ProjectController::class, 'binned'])->name('projects.bin');
     Route::delete('/projects/bin/{id}', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::resource('/projects', ProjectController::class);
+    Route::resource('/types', TypeController::class);
 });
 
 Route::get('/',[GuestPageController::class, 'landing'])->name('guest.welcome');
