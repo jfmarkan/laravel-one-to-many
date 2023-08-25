@@ -30,25 +30,40 @@
                     </label>
                     <input type="file" class="form-control" id="image" name="image" placeholder="Insert your image">
                 </div>
-                <div class="mb-3">
-                    <label for="language" class="form-label">
-                        Language
-                    </label>
-                    <input type="text" class="form-control" id="language" name="language">
+                <div class="d-flex gap-2">
+                    <div class="col mb-3">
+                        <label for="language" class="form-label">
+                            Language
+                        </label>
+                        <input type="text" class="form-control" id="language" name="language">
+                    </div>
+                    <div class="col mb-3">
+                        <label for="type_id" class="form-label">
+                            Type
+                        </label>
+                        <select class="form-select" aria-label="Default select example" id="type_id" name="type_id">
+                            <option selected>Select a project type</option>
+                            @foreach ($typeList as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
+                
                 <div class="mb-3">
                     <label for="date" class="form-label">
                         Date
                     </label>
                     <input type="date" class="form-control" id="date" name="date">
                 </div>
-                
-                <button type="submit" class="btn btn-success">
-                    <i class="fa-solid fa-check"></i>
-                </button>
-                <a href="{{ route('admin.projects.index')}}" class="btn btn-danger">
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
+                <div class="d-flex gap-2 justify-content-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa-solid fa-check"></i>
+                    </button>
+                    <a href="{{ route('admin.projects.index')}}" class="btn btn-danger">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
             </form>
         </div>
     </div>

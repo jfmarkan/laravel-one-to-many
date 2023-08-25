@@ -9,14 +9,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-around">
-        <article class="card w-50 p-0 m-2 position-relative">
+        <article class="card p-0 m-2 position-relative">
             <div class="card-body">
                 <h5 class="card-title">
-                    {{ $project->title  }}
+                    {{ $project->title }}
                 </h5>
-                <h6>
-                    ID : {{ $project->id }}
-                </h6>
+                <div class="d-flex gap-3">
+                    <h6>
+                        ID : {{ $project->id }}
+                    </h6>
+                    <h6>
+                        Type: <span class="badge" style="background-color:{{$project->type->color}}">{{$project->type->name}}</span>
+                    </h6>
+                </div>
+
                 <img src="{{ asset('storage/' . $project->image)}}" alt="{{ $project->title }}'s Image">
                 <p class="card-text">
                     Development date: {{ $project->date }}

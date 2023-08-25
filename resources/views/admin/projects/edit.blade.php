@@ -9,11 +9,6 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-around">
-            <div class="col-8 bg-white my-5">
-                <h1>
-                    Modify {{ $project->title }}
-                </h1>
-            </div>
             <form class="col-8 bg-light p-3 rounded" action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -47,12 +42,15 @@
                     </label>
                     <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $project->date) }}">
                 </div>
-                <button type="submit" class="btn btn-success">
-                    <i class="fa-solid fa-check"></i>
-                </button>
-                <a href="{{ route('admin.projects.index')}}" class="btn btn-danger">
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
+                <div class="d-flex gap-2 justify-content-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa-solid fa-check"></i>
+                    </button>
+                    <a href="{{ route('admin.projects.index')}}" class="btn btn-danger">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
+                
             </form>
         </div>
     </div>

@@ -56,7 +56,7 @@
                                         Create New
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a href="" class="dropdown-item">Type</a></li>
+                                        <li><a href="{{ route('admin.types.create')}}" class="dropdown-item">Type</a></li>
                                         <li><a href="{{ route('admin.projects.create') }}" class="dropdown-item">Project</a></li>
                                     </ul>
                                 </div>

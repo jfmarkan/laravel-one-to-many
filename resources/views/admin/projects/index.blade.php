@@ -54,10 +54,10 @@
                                     {{ $project->id }}
                                 </th>
                                 <td>
-                                    {{ $project->title  }}
+                                    {{ $project->title }}
                                 </td>
                                 <td>
-                                    {{ $project->language  }}
+                                    {{ $project->language }}
                                 </td>
                                 <td>
                                     {{ $project->repo }}
