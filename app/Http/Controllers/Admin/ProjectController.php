@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,6 +16,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projectList=Project::Paginate(15);
+
         return view('admin.projects.index', compact('projectList'));
     }
 
@@ -23,7 +25,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $typeList = Type::all();
+
+        return view('admin.projects.create', compact('typeList'));
     }
 
     /**
