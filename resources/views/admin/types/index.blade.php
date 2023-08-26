@@ -66,10 +66,6 @@
                                     
                                 </td>
                                 <td class="text-center">
-                                    <a class="btn btn-sm btn-primary me-2"
-                                        href="{{ route('admin.types.show', $type->id) }}">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </a>
                                     <a class="btn btn-sm btn-success me-2"
                                         href="{{ route('admin.types.edit', $type->id) }}">
                                         <i class="fa-solid fa-pen"></i>

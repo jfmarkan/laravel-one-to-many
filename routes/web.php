@@ -23,10 +23,10 @@ Auth::routes();
 Route::get('/home', [AdminPageController::class, 'logged'])->name('home');
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
-    Route::get('/bin', [AdminPageController::class, 'binned'])->name('bin');
     Route::get('/dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
     Route::get('/projects/bin', [ProjectController::class, 'binned'])->name('projects.bin');
-    Route::delete('/projects/bin/{id}', [ProjectController::class, 'restore'])->name('projects.restore');
+    Route::post('/projects/bin/{id}', [ProjectController::class, 'restore'])->name('projects.restore');
+    Route::delete('projects/bin/{id}', [ProjectController::class, 'delete'])->name('projects.delete');
     Route::resource('/projects', ProjectController::class);
     Route::get('/types/bin', [TypeController::class, 'binned'])->name('types.bin');
     Route::post('/types/bin/{id}', [TypeController::class, 'restore'])->name('types.restore');

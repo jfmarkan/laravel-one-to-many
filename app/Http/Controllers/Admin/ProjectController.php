@@ -79,25 +79,30 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
         $project = Project::findOrFail($id);
-
         $project->delete();
-        return redirect()->route('admin.projects.index')->with('deleted', $project->title);
+        return redirect()->route('admin.projects.index')->with('deleted', $project->name);
     }
-
+    
     public function binned()
     {
-        $projectList=Project::onlyTrashed()->paginate(10);
+        $projectList = Project::onlyTrashed()->paginate(10);
         return view('admin.projects.bin', compact('projectList'));
     }
-
+    
     public function restore($id)
     {
         $project = Project::withTrashed()->findOrFail($id);
-
         $project->restore();
-        return redirect()->route('admin.projects.index')->with('restored', $project->title);
+        return redirect()->route('admin.projects.index')->with('restored', $project->name);
+    }
+    
+    public function destroy(string $id)
+    {
+        $project = Project::onlyTrashed()->findOrFail($id);
+        $project->forceDelete();
+        return redirect()->route('admin.projects.bin')->with('destroyed', $project->name);
     }
 }

@@ -35,6 +35,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Go to Projects</a>
                     </div>
                 </div>
             </div>
@@ -62,6 +63,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <a href="{{route('admin.types.index')}}" class="btn btn-primary">Go to Types</a>
                     </div>
                 </div>
             </div>

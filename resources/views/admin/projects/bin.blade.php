@@ -28,11 +28,18 @@
                                     {{ $project->title }}
                                 </td>
                                 <td class="text-center">
-                                    <form action="{{route('admin.projects.restore', $project->id)}}" class="d-inline form-terminator" method="POST">
+                                    <form action="{{ route('admin.projects.restore', $project->id) }}" class="d-inline form-restorer" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-warning btn-sm">
+                                            <i class="fa-solid fa-trash-arrow-up"></i>
+                                        </button>
+                                    </form>
+                                    <form action="{{route('admin.projects.destroy', $project->id)}}" class="d-inline form-terminator" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-warning btn-sm">
-                                            <i class="fa-solid fa-trash-arrow-up"></i>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
                                 </td>
@@ -51,10 +58,22 @@
 @section('custom-scripts')
     <script>
         const deleteFormElements = document.querySelectorAll('form.form-terminator');
-        deleteFormElements.forEach(formElement => {
-            formElement.addEventListener('submit', function(event) {
+        const restoreFormElements = document.querySelectorAll('form.form-restorer');
+
+        deleteFormElements.forEach(deleteformElement => {
+            deleteformElement.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const userConfirm = window.confirm('Are you sure you want to restore this Project?');
+                const userConfirm = window.confirm('Are you sure you want to permanently delete this Type?');
+                if (userConfirm){
+                    this.submit();
+                }
+            });
+        });
+
+        restoreFormElements.forEach(restoreformElement => {
+            restoreformElement.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const userConfirm = window.confirm('Are you sure you want to restore this Type?');
                 if (userConfirm){
                     this.submit();
                 }

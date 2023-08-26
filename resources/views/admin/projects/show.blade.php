@@ -35,7 +35,7 @@
                 <a class="btn btn-sm btn-success me-2" href="{{ route('admin.projects.edit', $project->id) }}">
                     <i class="fa-solid fa-pen"></i>
                 </a>
-                <form action="{{ route('admin.projects.destroy', $project->id) }}" class="d-inline form-terminator me-2" method="POST">
+                <form action="{{ route('admin.projects.delete', $project->id) }}" class="d-inline form-terminator me-2" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">

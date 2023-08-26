@@ -71,7 +71,7 @@
                                         href="{{ route('admin.projects.edit', $project->id) }}">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <form action="{{ route('admin.projects.destroy', $project->id) }}" class="d-inline form-terminator" method="POST">
+                                    <form action="{{ route('admin.projects.delete', $project->id) }}" class="d-inline form-terminator" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-warning btn-sm">
