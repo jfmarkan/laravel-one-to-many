@@ -25,7 +25,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
     Route::get('/projects/bin', [ProjectController::class, 'binned'])->name('projects.bin');
     Route::delete('/projects/bin/{id}', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::resource('/projects', ProjectController::class);
-    
+    Route::get('/types/bin', [TypeController::class, 'binned'])->name('types.bin');
+    Route::post('/types/bin/{id}', [TypeController::class, 'restore'])->name('types.restore');
+    Route::delete('/types/bin/{id}', [TypeController::class, 'delete'])->name('types.delete');
     Route::resource('/types', TypeController::class);
 });
 
