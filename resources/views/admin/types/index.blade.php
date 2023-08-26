@@ -33,6 +33,12 @@
                         <i class="fa-solid fa-circle-exclamation"></i> <strong>{{ session('restored') }}</strong> has been succesfully restored.
                     </div>
                 </div>
+            @elseif ( session('hardDeleted'))
+                <div class="col-12">
+                    <div class="alert alert-success">
+                        <i class="fa-solid fa-circle-exclamation"></i> <strong>{{ session('destroyed') }}</strong> has been permanently deleted.
+                    </div>
+                </div>
             @endif
         </div>
         <div class="row">
@@ -68,7 +74,7 @@
                                         href="{{ route('admin.types.edit', $type->id) }}">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <form action="{{ route('admin.types.destroy', $type->id) }}" class="d-inline form-terminator" method="POST">
+                                    <form action="{{ route('admin.types.delete', $type->id) }}" class="d-inline form-terminator" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-warning btn-sm">
@@ -92,7 +98,7 @@
         deleteFormElements.forEach(formElement => {
             formElement.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const userConfirm = window.confirm('Are you sure you want to delete this Project?');
+                const userConfirm = window.confirm('Are you sure you want to delete this Type?');
                 if (userConfirm){
                     this.submit();
                 }

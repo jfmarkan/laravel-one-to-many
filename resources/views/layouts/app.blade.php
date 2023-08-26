@@ -53,7 +53,7 @@
                             <li class="align-self-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Create New
+                                        Create
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a href="{{ route('admin.types.create')}}" class="dropdown-item">Type</a></li>
@@ -62,9 +62,15 @@
                                 </div>
                             </li>
                             <li class="align-self-center">
-                                <a href="{{route('admin.projects.bin')}}" class="btn btn-warning btn-sm mx-2">
-                                    View Trash
-                                </a>
+                                <div class="btn-group mx-2">
+                                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Deleted
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a href="{{ route('admin.types.bin')}}" class="dropdown-item">Types</a></li>
+                                        <li><a href="{{ route('admin.projects.bin') }}" class="dropdown-item">Projects</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="align-self-center">
                                 <div class="btn btn-danger btn-sm">
