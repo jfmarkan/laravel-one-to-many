@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mb-3">
-                    <a href="{{route('admin.projects.index')}}" class="btn btn-info btn-sm">Continue</a>
+                    <a href="{{route('admin.dashboard')}}" class="btn btn-info btn-sm">Continue</a>
                 </div>
             </div>
         </div>

@@ -20,8 +20,11 @@ use App\Http\Controllers\Admin\TypeController as TypeController;
 
 Auth::routes();
 
+Route::get('/home', [AdminPageController::class, 'logged'])->name('home');
+
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
-    Route::get('/home', [AdminPageController::class, 'logged'])->name('home');
+    Route::get('/bin', [AdminPageController::class, 'binned'])->name('bin');
+    Route::get('/dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
     Route::get('/projects/bin', [ProjectController::class, 'binned'])->name('projects.bin');
     Route::delete('/projects/bin/{id}', [ProjectController::class, 'restore'])->name('projects.restore');
     Route::resource('/projects', ProjectController::class);

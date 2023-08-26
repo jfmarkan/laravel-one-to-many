@@ -68,7 +68,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a href="{{ route('admin.types.bin')}}" class="dropdown-item">Types</a></li>
-                                        <li><a href="{{ route('admin.projects.bin') }}" class="dropdown-item">Projects</a></li>
+                                        <li><a href="{{ route('admin.projects.bin') }}" class="dropdown-item">Project</a></li>
                                     </ul>
                                 </div>
                             </li>

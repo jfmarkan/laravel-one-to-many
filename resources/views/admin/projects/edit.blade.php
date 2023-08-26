@@ -30,11 +30,24 @@
                     </label>
                     <input type="file" class="form-control" id="image" name="image" value="{{ old('image', '') }}">
                 </div>
-                <div class="mb-3">
-                    <label for="language" class="form-label">
-                        Language
-                    </label>
-                    <input type="text" class="form-control" id="language" name="language" value="{{ old ('language', $project->language) }}">
+                <div class="d-flex gap-2">
+                    <div class="col mb-3">
+                        <label for="language" class="form-label">
+                            Language
+                        </label>
+                        <input type="text" class="form-control" id="language" name="language" value="{{ old ('language', $project->language) }}">
+                    </div>
+                    <div class="col mb-3">
+                        <label for="type_id" class="form-label">
+                            Type
+                        </label>
+                        <select class="form-select" aria-label="Default select example" id="type_id" name="type_id" value="{{ old ('type', $project->type_id) }}">
+                            <option selected>Select a project type</option>
+                            @foreach ($typeList as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="date" class="form-label">
