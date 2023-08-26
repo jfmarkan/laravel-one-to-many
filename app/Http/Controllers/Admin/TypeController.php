@@ -64,14 +64,36 @@ class TypeController extends Controller
 
         $type = Type::findOrFail($id);
         $type->update($data);
-        return redirect()->route('admin.types.index')->with('updated', $type->title);
+        return redirect()->route('admin.types.index')->with('updated', $type->name);
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(string $id)
+    {
+        $type = Type::findOrFail($id);
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('deleted', $type->name);
+    }
+    
+    public function binned()
+    {
+        $typeList = Type::onlyTrashed()->paginate(10);
+        return view('admin.types.bin', compact('typeList'));
+    }
+    
+    public function restore($id)
+    {
+        $type = Type::withTrashed()->findOrFail($id);
+        $type->restore();
+        return redirect()->route('admin.types.index')->with('restored', $type->name);
+    }
+    
     public function destroy(string $id)
     {
-        //
+        $id = Type::onlyTrashed()->findOrFail($id);
+        $id->forceDelete();
+        return redirect()->route('admin.types.index')->with('destroyed', $id->name);
     }
 }
